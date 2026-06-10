@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "title": "El cumple de Fede",
+    "sub": "Viernes 10 de julio · 21 hs · Casa de Fede"
+  },
+  "people": [
+    { "id": 1, "name": "Fede", "gender": "h", "who": "Fede", "status": "confirmado", "host": true },
+    { "id": 2, "name": "Marta", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 3, "name": "Lucas B", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 4, "name": "Ivo", "gender": "h", "who": "Fede", "status": "invitado" },
+    { "id": 5, "name": "Fer", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 6, "name": "Alan", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 7, "name": "Kevin", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 8, "name": "Augusto", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 9, "name": "Marta", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 10, "name": "Buczo", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 11, "name": "Fran", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 12, "name": "Yapu", "gender": "h", "who": "Fede", "status": "confirmado" },
+    { "id": 13, "name": "Manu", "gender": "h", "who": "Fede", "status": "invitado" },
+    { "id": 14, "name": "Lulu", "gender": "m", "who": "Fede", "status": "confirmado" },
+    { "id": 15, "name": "Novia Eggen", "gender": "m", "who": "Eggen", "status": "invitado" },
+    { "id": 16, "name": "Nao", "gender": "m", "who": "Fede", "status": "invitado" },
+    { "id": 17, "name": "Cata", "gender": "m", "who": "Lulu", "status": "invitado" },
+    { "id": 18, "name": "Cami", "gender": "m", "who": "Lulu", "status": "invitado" },
+    { "id": 19, "name": "Novia Lulu", "gender": "m", "who": "Lulu", "status": "invitado" },
+    { "id": 20, "name": "Magui", "gender": "m", "who": "Vale", "status": "invitado" },
+    { "id": 21, "name": "Mica", "gender": "m", "who": "Vale", "status": "invitado" },
+    { "id": 22, "name": "Vale", "gender": "m", "who": "Fede", "status": "confirmado" },
+    { "id": 23, "name": "Sol", "gender": "m", "who": "Fede", "status": "invitado" },
+    { "id": 24, "name": "Mica", "gender": "m", "who": "Fede", "status": "confirmado" }
+  ]
+}
