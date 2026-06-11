@@ -2,7 +2,7 @@
 <html lang="es"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lista de CumpleaÃ±os</title>
+<title>Lista de Cumplea&ntilde;os</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <style>/* latin-ext */
@@ -425,7 +425,7 @@
 <script type="text/babel" data-presets="react">
 const { useState, useEffect, useRef } = React;
 
-const DEFAULT_META = { title: "El cumple de Fede", sub: "Viernes 10 de julio Â· 21 hs Â· Casa de Fede" };
+const DEFAULT_META = { title: "El cumple de Fede", sub: "Viernes 10 de julio \u00b7 21 hs \u00b7 Casa de Fede" };
 const EMPTY_DATA = { meta: DEFAULT_META, people: [] };
 
 function initials(name) {
@@ -494,7 +494,7 @@ function App() {
     try {
       const r = await fetch(ghUrl(cfg) + "?ref=" + cfg.branch + "&t=" + Date.now(), { headers: ghHeaders(cfg), cache: "no-store" });
       if (r.status === 404) { shaRef.current = null; lastSavedRef.current = ""; setGhStatus("synced"); return false; }
-      if (!r.ok) throw new Error(r.status === 401 ? "Token invÃ¡lido o sin permiso" : "No se pudo leer (HTTP " + r.status + ")");
+      if (!r.ok) throw new Error(r.status === 401 ? "Token invalido o sin permiso" : "No se pudo leer (HTTP " + r.status + ")");
       const j = await r.json();
       shaRef.current = j.sha;
       const data = JSON.parse(b64decode(j.content));
@@ -511,16 +511,16 @@ function App() {
   const ghSave = async (cfg) => {
     setGhStatus("saving"); setGhError("");
     try {
-      // traer el sha mÃ¡s reciente para no pisar cambios hechos en otro dispositivo
+      // Traer el sha mas reciente para no pisar cambios hechos en otro dispositivo.
       try {
         const head = await fetch(ghUrl(cfg) + "?ref=" + cfg.branch + "&t=" + Date.now(), { headers: ghHeaders(cfg), cache: "no-store" });
         if (head.ok) shaRef.current = (await head.json()).sha;
         else if (head.status === 404) shaRef.current = null;
       } catch (e) {}
-      const body = { message: "Actualizar lista de invitados â€” " + new Date().toLocaleString("es-AR"), content: b64encode(JSON.stringify(snapshot(), null, 2)), branch: cfg.branch };
+      const body = { message: "Actualizar lista de invitados - " + new Date().toLocaleString("es-AR"), content: b64encode(JSON.stringify(snapshot(), null, 2)), branch: cfg.branch };
       if (shaRef.current) body.sha = shaRef.current;
       const r = await fetch(ghUrl(cfg), { method: "PUT", headers: ghHeaders(cfg), body: JSON.stringify(body) });
-      if (!r.ok) throw new Error(r.status === 401 ? "Token sin permiso de escritura" : r.status === 409 ? "Conflicto: recargÃ¡ para traer la Ãºltima versiÃ³n" : "No se pudo guardar (HTTP " + r.status + ")");
+      if (!r.ok) throw new Error(r.status === 401 ? "Token sin permiso de escritura" : r.status === 409 ? "Conflicto: recarga para traer la ultima version" : "No se pudo guardar (HTTP " + r.status + ")");
       const j = await r.json();
       shaRef.current = j.content.sha;
       lastSavedRef.current = dataKey(meta, people);
@@ -558,7 +558,7 @@ function App() {
     return () => clearTimeout(saveTimer.current);
   }, [people, meta]);
 
-  // Al volver a la pestaÃ±a, refrescar desde el repo (ver cambios de otro dispositivo)
+  // Al volver a la pestana, refrescar desde el repo para ver cambios de otro dispositivo.
   useEffect(() => {
     if (!gh || !gh.token) return;
     const onFocus = () => { if (ghStatus !== "saving") ghLoad(gh); };
@@ -588,7 +588,7 @@ function App() {
     const file = e.target.files && e.target.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = () => { try { applyData(JSON.parse(reader.result)); } catch (err) { alert("El archivo no es un JSON vÃ¡lido."); } };
+    reader.onload = () => { try { applyData(JSON.parse(reader.result)); } catch (err) { alert("El archivo no es un JSON valido."); } };
     reader.readAsText(file);
     e.target.value = "";
   };
@@ -596,7 +596,7 @@ function App() {
   const add = () => {
     const n = name.trim();
     if (!n) return;
-    setPeople(p => [...p, { id: Date.now(), name: n, gender, who: who.trim() || "â€”", status }]);
+    setPeople(p => [...p, { id: Date.now(), name: n, gender, who: who.trim() || "-", status }]);
     setName(""); setWho("Fede");
     nameRef.current && nameRef.current.focus();
   };
@@ -655,7 +655,7 @@ function App() {
           <div className="prog general">
             <div className="top">
               <span className="ttl">Confirmaciones en total</span>
-              <span className="nums"><b>{tConf}</b> de {total} Â· {pct}%</span>
+              <span className="nums"><b>{tConf}</b> de {total} · {pct}%</span>
             </div>
             <div className="bar"><i style={{ width: pct + "%", background: "var(--confirm)" }}></i></div>
           </div>
@@ -690,23 +690,23 @@ function App() {
           {gh && gh.token ? (
             <span className="fb-text">
               <b>
-                {ghStatus === "synced" ? "Sincronizado con GitHub âœ“"
-                  : ghStatus === "saving" ? "Guardandoâ€¦"
-                  : ghStatus === "loading" ? "Trayendo la Ãºltima versiÃ³nâ€¦"
+                {ghStatus === "synced" ? "Sincronizado con GitHub OK"
+                  : ghStatus === "saving" ? "Guardando..."
+                  : ghStatus === "loading" ? "Trayendo la ultima version..."
                   : ghStatus === "error" ? "No se pudo sincronizar"
                   : "GitHub conectado"}
               </b>
-              <em>{ghStatus === "error" ? ghError : gh.owner + "/" + gh.repo + " Â· " + gh.path}</em>
+              <em>{ghStatus === "error" ? ghError : gh.owner + "/" + gh.repo + " · " + gh.path}</em>
             </span>
           ) : dataSource === "local" ? (
             <span className="fb-text">
               <b>Modo local: leyendo data.json</b>
-              <em>PodÃ©s editar, pero no se guarda online hasta conectar GitHub</em>
+              <em>Los cambios que hagas aca NO se publican online hasta conectar GitHub.</em>
             </span>
           ) : (
             <span className="fb-text">
               <b>Modo temporal en este navegador</b>
-              <em>ConectÃ¡ GitHub para persistir cambios y sincronizar dispositivos</em>
+              <em>Conecta GitHub para persistir cambios y sincronizar dispositivos.</em>
             </span>
           )}
         </div>
@@ -714,7 +714,7 @@ function App() {
           {gh && gh.token ? (
             <React.Fragment>
               {ghStatus === "error" && <button className="fb-btn" onClick={retryGitHub}>Reintentar</button>}
-              <button className="fb-btn" onClick={()=>setShowSettings(true)} title="Ajustes de sincronizaciÃ³n">
+              <button className="fb-btn" onClick={()=>setShowSettings(true)} title="Ajustes de sincronizacion">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                 Ajustes
               </button>
@@ -737,18 +737,18 @@ function App() {
         <div className="field grow">
           <label>Nombre</label>
           <input ref={nameRef} value={name} onChange={e=>setName(e.target.value)}
-            onKeyDown={e=>e.key==="Enter"&&add()} placeholder="Â¿QuiÃ©n viene?" />
+            onKeyDown={e=>e.key==="Enter"&&add()} placeholder="Quien viene?" />
         </div>
         <div className="field grow">
-          <label>Lo invitÃ³</label>
+          <label>Lo invito</label>
           <input value={who} onChange={e=>setWho(e.target.value)} list="inviters"
-            onKeyDown={e=>e.key==="Enter"&&add()} placeholder="Ej: Caro, Nico, Yoâ€¦" />
+            onKeyDown={e=>e.key==="Enter"&&add()} placeholder="Ej: Caro, Nico, Yo..." />
           <datalist id="inviters">
-            {[...new Set(people.map(p=>p.who).filter(w=>w&&w!=="â€”"))].map(w=>(<option key={w} value={w} />))}
+            {[...new Set(people.map(p=>p.who).filter(w=>w&&w!=="-"))].map(w=>(<option key={w} value={w} />))}
           </datalist>
         </div>
         <div className="field">
-          <label>GÃ©nero</label>
+          <label>Genero</label>
           <div className="seg">
             <button className={gender==="h"?"on-h":""} onClick={()=>setGender("h")}>Hombre</button>
             <button className={gender==="m"?"on-m":""} onClick={()=>setGender("m")}>Mujer</button>
@@ -768,7 +768,7 @@ function App() {
       <div className="toolbar">
         <div className="search">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
-          <input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Buscar por nombre o quiÃ©n invitÃ³â€¦" />
+          <input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Buscar por nombre o quien invito..." />
         </div>
         <div className="chips">
           {[["todos","Todos"],["confirmado","Confirmados"],["invitado","Invitados"]].map(([k,l])=>(
@@ -790,8 +790,8 @@ function App() {
           ? <span>Se guarda solo en <b>{gh.owner}/{gh.repo}</b> y se sincroniza entre tus dispositivos.</span>
           : dataSource === "local"
             ? <span>La lista visible viene de <b>data.json</b>, pero los cambios no impactan GitHub Pages hasta conectar GitHub.</span>
-            : <span>ConectÃ¡ GitHub arriba para guardar online y sincronizar.</span>}{" "}
-        <button onClick={()=>{ if(confirm("Â¿Borrar toda la lista? Esto deja solo al anfitriÃ³n.")){ setPeople(p => p.filter(x => x.host)); } }}>Vaciar lista</button>
+            : <span>Conecta GitHub arriba para guardar online y sincronizar.</span>}{" "}
+        <button onClick={()=>{ if(confirm("Borrar toda la lista? Esto deja solo al anfitrion.")){ setPeople(p => p.filter(x => x.host)); } }}>Vaciar lista</button>
       </p>
 
       {showSettings && (
@@ -837,38 +837,38 @@ function SettingsModal({ initial, status, error, onClose, onConnect, onDisconnec
       <div className="modal">
         <div className="modal-head">
           <h3>Sincronizar con GitHub</h3>
-          <button className="modal-x" onClick={onClose}>âœ•</button>
+          <button className="modal-x" onClick={onClose}>x</button>
         </div>
         <p className="modal-intro">
-          Tu lista se guarda como un archivo JSON en un repositorio tuyo de GitHub. Se sincroniza entre el celu y la compu, sin base de datos. PegÃ¡s el token una vez en cada dispositivo (queda solo en este navegador).
+          Tu lista se guarda como un archivo JSON en un repositorio tuyo de GitHub. Se sincroniza entre el celu y la compu, sin base de datos. Pegas el token una vez en cada dispositivo y queda solo en este navegador.
         </p>
 
         <div className="mf-grid">
-          <label className="mf"><span>Usuario / organizaciÃ³n</span><input value={owner} onChange={e=>setOwner(e.target.value)} placeholder="tu-usuario" /></label>
+          <label className="mf"><span>Usuario / organizacion</span><input value={owner} onChange={e=>setOwner(e.target.value)} placeholder="tu-usuario" /></label>
           <label className="mf"><span>Repositorio</span><input value={repo} onChange={e=>setRepo(e.target.value)} placeholder="mi-cumple" /></label>
           <label className="mf"><span>Archivo (ruta)</span><input value={path} onChange={e=>setPath(e.target.value)} placeholder="data.json" /></label>
           <label className="mf"><span>Rama</span><input value={branch} onChange={e=>setBranch(e.target.value)} placeholder="main" /></label>
-          <label className="mf full"><span>Token de acceso</span><input type="password" value={token} onChange={e=>setToken(e.target.value)} placeholder="github_pat_â€¦" /></label>
+          <label className="mf full"><span>Token de acceso</span><input type="password" value={token} onChange={e=>setToken(e.target.value)} placeholder="github_pat_..." /></label>
         </div>
 
         <details className="mf-help">
-          <summary>Â¿CÃ³mo saco el token? (1 minuto)</summary>
+          <summary>Como saco el token? (1 minuto)</summary>
           <ol>
-            <li>EntrÃ¡ a <b>github.com â†’ Settings â†’ Developer settings â†’ Fine-grained tokens â†’ Generate new token</b>.</li>
-            <li>En <b>Repository access</b> elegÃ­ â€œOnly select repositoriesâ€ y marcÃ¡ tu repo de la lista.</li>
-            <li>En <b>Permissions â†’ Repository â†’ Contents</b>, ponelo en <b>Read and write</b>.</li>
-            <li>GenerÃ¡ el token, copialo y pegalo acÃ¡ arriba.</li>
+            <li>Entra a <b>github.com -> Settings -> Developer settings -> Fine-grained tokens -> Generate new token</b>.</li>
+            <li>En <b>Repository access</b> elegi "Only select repositories" y marca tu repo de la lista.</li>
+            <li>En <b>Permissions -> Repository -> Contents</b>, ponelo en <b>Read and write</b>.</li>
+            <li>Genera el token, copialo y pegalo aca arriba.</li>
           </ol>
         </details>
 
-        {status === "error" && <div className="mf-error">{error || "RevisÃ¡ los datos e intentÃ¡ de nuevo."}</div>}
+        {status === "error" && <div className="mf-error">{error || "Revisa los datos e intenta de nuevo."}</div>}
 
         <div className="modal-actions">
           {connected && <button className="fb-btn danger" onClick={onDisconnect}>Desconectar</button>}
           <div style={{flex:1}}></div>
           <button className="fb-btn" onClick={onClose}>Cancelar</button>
           <button className="fb-btn primary" disabled={!canSave} onClick={submit}>
-            {status === "loading" || status === "saving" ? "Conectandoâ€¦" : connected ? "Guardar cambios" : "Conectar y sincronizar"}
+            {status === "loading" || status === "saving" ? "Conectando..." : connected ? "Guardar cambios" : "Conectar y sincronizar"}
           </button>
         </div>
       </div>
@@ -888,20 +888,20 @@ function Column({ kind, title, people, totalConf, onToggle, onRemove }) {
           </span>
           <h2>{title}</h2>
         </div>
-        <div className="count">{people.length} Â· <b>{totalConf} conf.</b></div>
+        <div className="count">{people.length} · <b>{totalConf} conf.</b></div>
       </div>
       <div className="list">
         {people.length === 0 ? (
           <div className="empty">
-            <span className="serif">TodavÃ­a nadie por acÃ¡</span>
-            <p>AgregÃ¡ invitados con el formulario de arriba.</p>
+            <span className="serif">Todavia nadie por aca</span>
+            <p>Agrega invitados con el formulario de arriba.</p>
           </div>
         ) : people.map(p => (
           <div className={"person" + (p.host ? " host" : "")} key={p.id}>
             <div className="avatar">{initials(p.name)}</div>
             <div className="info">
               <div className="name">{p.name}</div>
-              <div className="who">{p.host ? "AnfitriÃ³n del cumple" : <span>Lo invitÃ³ <b>{p.who}</b></span>}</div>
+              <div className="who">{p.host ? "Anfitrion del cumple" : <span>Lo invito <b>{p.who}</b></span>}</div>
             </div>
             {p.host && (
               <span className="host-badge">
