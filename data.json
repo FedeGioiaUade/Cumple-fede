@@ -7,7 +7,7 @@
     { "id": 1, "name": "Fede", "gender": "h", "who": "Fede", "status": "confirmado", "host": true },
     { "id": 2, "name": "Marta", "gender": "h", "who": "Fede", "status": "confirmado" },
     { "id": 3, "name": "Lucas B", "gender": "h", "who": "Fede", "status": "confirmado" },
-    { "id": 4, "name": "Ivo", "gender": "h", "who": "Fede", "status": "invitado" },
+    { "id": 4, "name": "Ivo", "gender": "h", "who": "Fede", "status": "confirmado" },
     { "id": 5, "name": "Fer", "gender": "h", "who": "Fede", "status": "confirmado" },
     { "id": 6, "name": "Alan", "gender": "h", "who": "Fede", "status": "confirmado" },
     { "id": 7, "name": "Kevin", "gender": "h", "who": "Fede", "status": "confirmado" },
