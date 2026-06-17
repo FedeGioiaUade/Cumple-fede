@@ -420,9 +420,11 @@
 
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.25.7/babel.min.js" crossorigin="anonymous"></script>
 
 <script type="text/babel" data-presets="react">
+/** @jsxRuntime classic */
+/** @jsx React.createElement */
 const { useState, useEffect, useRef } = React;
 
 const DEFAULT_META = { title: "El cumple de Fede", sub: "Viernes 10 de julio \u00b7 21 hs \u00b7 Casa de Fede" };
