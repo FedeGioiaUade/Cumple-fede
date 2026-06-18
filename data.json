@@ -178,7 +178,7 @@
       "name": "Agus Dubatti",
       "gender": "h",
       "who": "Fede",
-      "status": "invitado"
+      "status": "confirmado"
     },
     {
       "id": 1781788639969,
@@ -188,5 +188,5 @@
       "status": "confirmado"
     }
   ],
-  "savedAt": "2026-06-18T13:17:29.113Z"
+  "savedAt": "2026-06-18T13:44:50.906Z"
 }
