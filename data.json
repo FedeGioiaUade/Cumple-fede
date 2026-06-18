@@ -62,13 +62,6 @@
       "status": "confirmado"
     },
     {
-      "id": 9,
-      "name": "Marta",
-      "gender": "h",
-      "who": "Fede",
-      "status": "confirmado"
-    },
-    {
       "id": 10,
       "name": "Buczo",
       "gender": "h",
@@ -209,5 +202,5 @@
       "status": "invitado"
     }
   ],
-  "savedAt": "2026-06-18T13:46:32.522Z"
+  "savedAt": "2026-06-18T13:46:41.575Z"
 }
