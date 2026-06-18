@@ -350,6 +350,20 @@
 
   .list { padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 120px; }
 
+  .col-add {
+    border-top: 1px solid var(--line-soft);
+    padding: 14px 14px 16px;
+    background: linear-gradient(to bottom, oklch(1 0 0 / 0), var(--bg-2));
+  }
+  .col-add-title {
+    font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 10px;
+  }
+  .col-add-grid { display: grid; gap: 10px; }
+  .col-add .field > span { font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-faint); padding-left: 2px; }
+  .col-add-actions { display: flex; justify-content: flex-end; }
+  .col-add .add-btn { width: 100%; justify-content: center; padding: 11px 16px; font-size: 14px; }
+
   .person {
     display: flex; align-items: center; gap: 13px; padding: 12px 14px;
     border-radius: 13px; background: var(--bg-2); border: 1px solid transparent;
@@ -410,6 +424,7 @@
     .addbar .seg { width: 100%; }
     .addbar .seg button { flex: 1; }
     .add-btn { justify-content: center; }
+    .col-add-actions { justify-content: stretch; }
     .hero { padding-top: 40px; }
   }
 </style>
@@ -631,6 +646,13 @@ function App() {
     nameRef.current && nameRef.current.focus();
   };
 
+  const addGuestQuick = (guestGender, guestName, guestWho) => {
+    const n = guestName.trim();
+    if (!n) return false;
+    setPeople(p => [...p, { id: Date.now(), name: n, gender: guestGender, who: guestWho.trim() || "-", status: "invitado" }]);
+    return true;
+  };
+
   const toggleStatus = (id) =>
     setPeople(p => p.map(x => x.id === id ? { ...x, status: x.status === "confirmado" ? "invitado" : "confirmado" } : x));
 
@@ -810,9 +832,9 @@ function App() {
       {/* COLUMNS */}
       <div className="cols">
         <Column kind="h" title="Hombres" people={hombres} totalConf={hombres.filter(x=>x.status==="confirmado").length}
-          onToggle={toggleStatus} onRemove={remove} />
+          onToggle={toggleStatus} onRemove={remove} onAddGuest={addGuestQuick} />
         <Column kind="m" title="Mujeres" people={mujeres} totalConf={mujeres.filter(x=>x.status==="confirmado").length}
-          onToggle={toggleStatus} onRemove={remove} />
+          onToggle={toggleStatus} onRemove={remove} onAddGuest={addGuestQuick} />
       </div>
 
       <p className="footer-note">
@@ -906,7 +928,7 @@ function SettingsModal({ initial, status, error, onClose, onConnect, onDisconnec
   );
 }
 
-function Column({ kind, title, people, totalConf, onToggle, onRemove }) {
+function Column({ kind, title, people, totalConf, onToggle, onRemove, onAddGuest }) {
   return (
     <section className={"col " + kind}>
       <div className="col-head">
@@ -924,7 +946,7 @@ function Column({ kind, title, people, totalConf, onToggle, onRemove }) {
         {people.length === 0 ? (
           <div className="empty">
             <span className="serif">Todavia nadie por aca</span>
-            <p>Agrega invitados con el formulario de arriba.</p>
+            <p>Agrega invitados con el formulario de arriba o desde este pie de lista.</p>
           </div>
         ) : people.map(p => (
           <div className={"person" + (p.host ? " host" : "")} key={p.id}>
@@ -951,7 +973,39 @@ function Column({ kind, title, people, totalConf, onToggle, onRemove }) {
           </div>
         ))}
       </div>
+      <AddGuestForm gender={kind} onAddGuest={onAddGuest} />
     </section>
+  );
+}
+
+function AddGuestForm({ gender, onAddGuest }) {
+  const [name, setName] = useState("");
+  const [who, setWho] = useState("");
+
+  const submit = () => {
+    const added = onAddGuest && onAddGuest(gender, name, who);
+    if (!added) return;
+    setName("");
+    setWho("");
+  };
+
+  return (
+    <div className="col-add">
+      <div className="col-add-title">Agregar {gender === "h" ? "hombre" : "mujer"} desde esta lista</div>
+      <div className="col-add-grid">
+        <label className="field grow">
+          <span>Nombre</span>
+          <input value={name} onChange={e=>setName(e.target.value)} onKeyDown={e=>e.key==="Enter"&&submit()} placeholder={gender === "h" ? "Ej: Juan" : "Ej: Carla"} />
+        </label>
+        <label className="field grow">
+          <span>Quien invito (opcional)</span>
+          <input value={who} onChange={e=>setWho(e.target.value)} onKeyDown={e=>e.key==="Enter"&&submit()} placeholder="Ej: Fede, Caro..." />
+        </label>
+        <div className="col-add-actions">
+          <button className="add-btn" onClick={submit} disabled={!name.trim()}>+ Agregar a {gender === "h" ? "Hombres" : "Mujeres"}</button>
+        </div>
+      </div>
+    </div>
   );
 }
 
