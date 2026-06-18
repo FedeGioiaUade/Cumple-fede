@@ -143,7 +143,7 @@
       "name": "Magui",
       "gender": "m",
       "who": "Vale",
-      "status": "invitado"
+      "status": "confirmado"
     },
     {
       "id": 21,
@@ -188,5 +188,5 @@
       "status": "confirmado"
     }
   ],
-  "savedAt": "2026-06-18T13:17:21.659Z"
+  "savedAt": "2026-06-18T13:17:29.113Z"
 }
