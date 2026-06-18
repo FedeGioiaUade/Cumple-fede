@@ -179,7 +179,14 @@
       "gender": "h",
       "who": "Fede",
       "status": "invitado"
+    },
+    {
+      "id": 1781788639969,
+      "name": "Valen",
+      "gender": "m",
+      "who": "Fran",
+      "status": "confirmado"
     }
   ],
-  "savedAt": "2026-06-14T18:05:53.945Z"
+  "savedAt": "2026-06-18T13:17:21.659Z"
 }
