@@ -186,7 +186,14 @@
       "gender": "m",
       "who": "Fran",
       "status": "confirmado"
+    },
+    {
+      "id": 1781790357401,
+      "name": "Berry",
+      "gender": "h",
+      "who": "Fede",
+      "status": "confirmado"
     }
   ],
-  "savedAt": "2026-06-18T13:44:50.906Z"
+  "savedAt": "2026-06-18T13:45:59.355Z"
 }
