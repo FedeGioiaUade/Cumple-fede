@@ -228,7 +228,14 @@
       "gender": "m",
       "who": "Marti",
       "status": "invitado"
+    },
+    {
+      "id": 1782659780498,
+      "name": "Anto",
+      "gender": "m",
+      "who": "Mica",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-06-28T15:16:05.764Z"
+  "savedAt": "2026-06-28T15:16:22.199Z"
 }
