@@ -214,7 +214,14 @@
       "gender": "m",
       "who": "Marti",
       "status": "invitado"
+    },
+    {
+      "id": 1782659749905,
+      "name": "Amiga Marti 2",
+      "gender": "m",
+      "who": "Marti",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-06-28T15:15:45.385Z"
+  "savedAt": "2026-06-28T15:15:51.589Z"
 }
