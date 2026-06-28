@@ -200,7 +200,14 @@
       "gender": "h",
       "who": "Fede",
       "status": "invitado"
+    },
+    {
+      "id": 1782659726807,
+      "name": "Marti",
+      "gender": "m",
+      "who": "Fede",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-06-18T13:46:41.575Z"
+  "savedAt": "2026-06-28T15:15:28.603Z"
 }
