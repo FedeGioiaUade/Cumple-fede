@@ -249,7 +249,14 @@
       "gender": "h",
       "who": "Fede",
       "status": "invitado"
+    },
+    {
+      "id": 1782743397510,
+      "name": "Marian Reynal",
+      "gender": "h",
+      "who": "Fede",
+      "status": "confirmado"
     }
   ],
-  "savedAt": "2026-06-29T14:29:37.461Z"
+  "savedAt": "2026-06-29T14:30:00.129Z"
 }
