@@ -108,7 +108,7 @@
       "name": "Nao",
       "gender": "m",
       "who": "Fede",
-      "status": "invitado"
+      "status": "confirmado"
     },
     {
       "id": 17,
@@ -251,5 +251,5 @@
       "status": "invitado"
     }
   ],
-  "savedAt": "2026-06-29T14:28:59.253Z"
+  "savedAt": "2026-06-29T14:29:37.461Z"
 }
