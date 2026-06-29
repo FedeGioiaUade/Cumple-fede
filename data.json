@@ -256,7 +256,14 @@
       "gender": "h",
       "who": "Fede",
       "status": "confirmado"
+    },
+    {
+      "id": 1782747116846,
+      "name": "Balda",
+      "gender": "h",
+      "who": "Fede",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-06-29T15:08:12.752Z"
+  "savedAt": "2026-06-29T15:31:58.465Z"
 }
