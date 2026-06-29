@@ -263,7 +263,14 @@
       "gender": "h",
       "who": "Fede",
       "status": "invitado"
+    },
+    {
+      "id": 1782747119940,
+      "name": "JC",
+      "gender": "h",
+      "who": "Balda",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-06-29T15:31:58.465Z"
+  "savedAt": "2026-06-29T15:32:01.555Z"
 }
