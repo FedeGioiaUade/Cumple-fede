@@ -192,14 +192,14 @@
       "name": "Lucas Ferra",
       "gender": "h",
       "who": "Fede",
-      "status": "confirmado"
+      "status": "invitado"
     },
     {
       "id": 1781790390829,
       "name": "Marian Ferra",
       "gender": "h",
       "who": "Fede",
-      "status": "confirmado"
+      "status": "invitado"
     },
     {
       "id": 1782659726807,
@@ -258,5 +258,5 @@
       "status": "confirmado"
     }
   ],
-  "savedAt": "2026-06-29T14:30:00.129Z"
+  "savedAt": "2026-06-29T15:08:12.752Z"
 }
