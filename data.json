@@ -139,13 +139,6 @@
       "status": "confirmado"
     },
     {
-      "id": 21,
-      "name": "Mica",
-      "gender": "m",
-      "who": "Vale",
-      "status": "invitado"
-    },
-    {
       "id": 22,
       "name": "Vale",
       "gender": "m",
@@ -286,5 +279,5 @@
       "status": "invitado"
     }
   ],
-  "savedAt": "2026-06-29T15:32:30.360Z"
+  "savedAt": "2026-06-29T15:32:45.016Z"
 }
