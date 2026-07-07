@@ -305,7 +305,14 @@
       "gender": "m",
       "who": "Lulu",
       "status": "invitado"
+    },
+    {
+      "id": 1783461137950,
+      "name": "Sanchez",
+      "gender": "h",
+      "who": "Fede",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-07-07T21:52:05.993Z"
+  "savedAt": "2026-07-07T21:52:19.609Z"
 }
