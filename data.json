@@ -227,7 +227,7 @@
       "name": "Anto",
       "gender": "m",
       "who": "Mica",
-      "status": "invitado"
+      "status": "confirmado"
     },
     {
       "id": 1782743333815,
@@ -276,7 +276,7 @@
       "name": "Mica V",
       "gender": "m",
       "who": "Vale",
-      "status": "invitado"
+      "status": "confirmado"
     },
     {
       "id": 1783461052782,
@@ -286,5 +286,5 @@
       "status": "invitado"
     }
   ],
-  "savedAt": "2026-07-07T21:50:54.435Z"
+  "savedAt": "2026-07-07T21:50:56.128Z"
 }
