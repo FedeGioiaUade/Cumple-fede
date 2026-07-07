@@ -291,7 +291,14 @@
       "gender": "h",
       "who": "Fede",
       "status": "invitado"
+    },
+    {
+      "id": 1783461075572,
+      "name": "Novia Ale",
+      "gender": "m",
+      "who": "f",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-07-07T21:51:13.288Z"
+  "savedAt": "2026-07-07T21:51:17.226Z"
 }
