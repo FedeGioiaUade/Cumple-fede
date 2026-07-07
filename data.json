@@ -115,21 +115,21 @@
       "name": "Cata",
       "gender": "m",
       "who": "Lulu",
-      "status": "invitado"
+      "status": "confirmado"
     },
     {
       "id": 18,
       "name": "Cami",
       "gender": "m",
       "who": "Lulu",
-      "status": "invitado"
+      "status": "confirmado"
     },
     {
       "id": 19,
       "name": "Novia Lulu",
       "gender": "m",
       "who": "Lulu",
-      "status": "invitado"
+      "status": "confirmado"
     },
     {
       "id": 20,
@@ -286,5 +286,5 @@
       "status": "invitado"
     }
   ],
-  "savedAt": "2026-07-07T21:50:56.128Z"
+  "savedAt": "2026-07-07T21:50:59.125Z"
 }
