@@ -97,13 +97,6 @@
       "status": "confirmado"
     },
     {
-      "id": 15,
-      "name": "Novia Eggen",
-      "gender": "m",
-      "who": "Eggen",
-      "status": "invitado"
-    },
-    {
       "id": 16,
       "name": "Nao",
       "gender": "m",
@@ -314,5 +307,5 @@
       "status": "invitado"
     }
   ],
-  "savedAt": "2026-07-07T21:52:19.609Z"
+  "savedAt": "2026-07-07T21:53:15.087Z"
 }
