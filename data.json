@@ -272,13 +272,6 @@
       "status": "invitado"
     },
     {
-      "id": 1782747148743,
-      "name": "Mica T",
-      "gender": "m",
-      "who": "Fede",
-      "status": "invitado"
-    },
-    {
       "id": 1782747170810,
       "name": "Mica V",
       "gender": "m",
@@ -286,5 +279,5 @@
       "status": "invitado"
     }
   ],
-  "savedAt": "2026-06-29T15:32:52.445Z"
+  "savedAt": "2026-07-07T21:50:46.818Z"
 }
