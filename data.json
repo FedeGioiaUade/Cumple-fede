@@ -298,7 +298,14 @@
       "gender": "m",
       "who": "f",
       "status": "invitado"
+    },
+    {
+      "id": 1783461124361,
+      "name": "Hermana lulu <3",
+      "gender": "m",
+      "who": "Lulu",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-07-07T21:51:17.226Z"
+  "savedAt": "2026-07-07T21:52:05.993Z"
 }
