@@ -255,7 +255,7 @@
       "name": "Balda",
       "gender": "h",
       "who": "Fede",
-      "status": "invitado"
+      "status": "confirmado"
     },
     {
       "id": 1782747119940,
@@ -286,5 +286,5 @@
       "status": "invitado"
     }
   ],
-  "savedAt": "2026-07-07T21:50:59.125Z"
+  "savedAt": "2026-07-07T21:51:03.274Z"
 }
