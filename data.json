@@ -277,7 +277,14 @@
       "gender": "m",
       "who": "Vale",
       "status": "invitado"
+    },
+    {
+      "id": 1783461052782,
+      "name": "Orne T",
+      "gender": "m",
+      "who": "Fede",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-07-07T21:50:46.818Z"
+  "savedAt": "2026-07-07T21:50:54.435Z"
 }
