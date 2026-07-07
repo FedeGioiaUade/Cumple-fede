@@ -284,7 +284,14 @@
       "gender": "m",
       "who": "Fede",
       "status": "invitado"
+    },
+    {
+      "id": 1783461070654,
+      "name": "Ale",
+      "gender": "h",
+      "who": "Fede",
+      "status": "invitado"
     }
   ],
-  "savedAt": "2026-07-07T21:51:03.274Z"
+  "savedAt": "2026-07-07T21:51:13.288Z"
 }
